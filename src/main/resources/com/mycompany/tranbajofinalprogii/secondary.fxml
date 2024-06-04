@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tranbajofinalprogii.SecondaryController">
+   <children>
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="1116.0" style="-fx-background-color: rgb(31, 31, 31); -fx-background: rgb(145, 11, 248);" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab fx:id="tab1" style="-tab-text-color: rgba(0, 255, 64, 0);" text="Tienda">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;">
+                     <children>
+                        <ScrollPane hmax="0.0" layoutX="14.0" prefHeight="655.0" prefWidth="1104.0" style="-fx-background: transparent; -fx-background-color: transparent;" vbarPolicy="ALWAYS" vvalue="0.91">
+                           <content>
+                              <AnchorPane prefHeight="1118.0" prefWidth="1088.0" style="-fx-background-color: transparent;">
+                                 <children>
+                                    <Pane layoutX="14.0" layoutY="14.0" prefHeight="495.0" prefWidth="338.0" style="-fx-background-radius: 50;" styleClass="backgroundColor" stylesheets="@StyleGradient.css">
+                                       <children>
+                                          <ImageView fitHeight="335.0" fitWidth="290.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../icons/imgNotFound.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="43.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="119.0" stylesheets="@StyleGradient.css" text="Carrito" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Arial Black" size="15.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../icons/carrito.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Label alignment="CENTER" layoutX="9.0" layoutY="364.0" prefHeight="37.0" prefWidth="311.0" text="Default Name">
+                                             <font>
+                                                <Font name="Arial Black" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="183.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" stylesheets="@StyleGradient.css" text="Deseos" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Arial Black" size="13.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../icons/Corazon.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children></Pane>
+                                    <Pane layoutX="375.0" layoutY="14.0" prefHeight="495.0" prefWidth="338.0" style="-fx-background-radius: 50;" styleClass="backgroundColor" stylesheets="@StyleGradient.css">
+                                       <children>
+                                          <ImageView fitHeight="335.0" fitWidth="290.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../icons/imgNotFound.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="43.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="119.0" stylesheets="@StyleGradient.css" text="Carrito" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Arial Black" size="15.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../icons/carrito.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Label alignment="CENTER" layoutX="9.0" layoutY="364.0" prefHeight="37.0" prefWidth="311.0" text="Default Name">
+                                             <font>
+                                                <Font name="Arial Black" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="183.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" stylesheets="@StyleGradient.css" text="Deseos" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Arial Black" size="13.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../icons/Corazon.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </Pane>
+                                    <Pane layoutX="736.0" layoutY="14.0" prefHeight="495.0" prefWidth="338.0" style="-fx-background-radius: 50;" styleClass="backgroundColor" stylesheets="@StyleGradient.css">
+                                       <children>
+                                          <ImageView fitHeight="335.0" fitWidth="290.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../icons/imgNotFound.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="43.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="119.0" stylesheets="@StyleGradient.css" text="Carrito" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Arial Black" size="15.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../icons/carrito.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Label alignment="CENTER" layoutX="9.0" layoutY="364.0" prefHeight="37.0" prefWidth="311.0" text="Default Name">
+                                             <font>
+                                                <Font name="Arial Black" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="183.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" stylesheets="@StyleGradient.css" text="Deseos" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Arial Black" size="13.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../icons/Corazon.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </Pane>
+                                    <Pane layoutX="14.0" layoutY="531.0" prefHeight="495.0" prefWidth="338.0" style="-fx-background-radius: 50;" styleClass="backgroundColor" stylesheets="@StyleGradient.css">
+                                       <children>
+                                          <ImageView fitHeight="335.0" fitWidth="290.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../icons/imgNotFound.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="43.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="119.0" stylesheets="@StyleGradient.css" text="Carrito" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Arial Black" size="15.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../icons/carrito.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Label alignment="CENTER" layoutX="9.0" layoutY="364.0" prefHeight="37.0" prefWidth="311.0" text="Default Name">
+                                             <font>
+                                                <Font name="Arial Black" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="183.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" stylesheets="@StyleGradient.css" text="Deseos" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Arial Black" size="13.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../icons/Corazon.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </Pane>
+                                    <Pane layoutX="375.0" layoutY="531.0" prefHeight="495.0" prefWidth="338.0" style="-fx-background-radius: 50;" styleClass="backgroundColor" stylesheets="@StyleGradient.css">
+                                       <children>
+                                          <ImageView fitHeight="335.0" fitWidth="290.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../icons/imgNotFound.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="43.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="119.0" stylesheets="@StyleGradient.css" text="Carrito" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Arial Black" size="15.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../icons/carrito.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Label alignment="CENTER" layoutX="9.0" layoutY="364.0" prefHeight="37.0" prefWidth="311.0" text="Default Name">
+                                             <font>
+                                                <Font name="Arial Black" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="183.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" stylesheets="@StyleGradient.css" text="Deseos" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Arial Black" size="13.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../icons/Corazon.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </Pane>
+                                    <Pane layoutX="736.0" layoutY="531.0" prefHeight="495.0" prefWidth="338.0" style="-fx-background-radius: 50;" styleClass="backgroundColor" stylesheets="@StyleGradient.css">
+                                       <children>
+                                          <ImageView fitHeight="335.0" fitWidth="290.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../icons/imgNotFound.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="43.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="119.0" stylesheets="@StyleGradient.css" text="Carrito" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Arial Black" size="15.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../icons/carrito.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Label alignment="CENTER" layoutX="9.0" layoutY="364.0" prefHeight="37.0" prefWidth="311.0" text="Default Name">
+                                             <font>
+                                                <Font name="Arial Black" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="183.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" stylesheets="@StyleGradient.css" text="Deseos" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Arial Black" size="13.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../icons/Corazon.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children></AnchorPane>
+               </content></Tab>
+            <Tab text="Carrito">
+               <content>
+                  <AnchorPane fx:id="carritoTab" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="911.0" layoutY="192.0" mnemonicParsing="false" onAction="#addElement" text="Button" />
+                        <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="612.0" prefWidth="732.0" style="-fx-background: transparent; -fx-background-color: transparent;">
+                           <content>
+                              <GridPane fx:id="carritoView" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="0.0" prefWidth="717.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+         </tabs>
+      </TabPane>
+      <ImageView fitHeight="23.0" fitWidth="22.0" layoutX="1091.0" layoutY="3.0" onMouseClicked="#cerra" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../icons/x.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
