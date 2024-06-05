@@ -21,17 +21,12 @@
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;">
                      <children>
-                        <ScrollPane hmax="0.0" layoutX="14.0" prefHeight="655.0" prefWidth="1104.0" style="-fx-background: transparent; -fx-background-color: transparent;" vbarPolicy="ALWAYS" vvalue="0.91">
+                        <ScrollPane hmax="0.0" layoutX="14.0" prefHeight="655.0" prefWidth="1104.0" style="-fx-background: transparent; -fx-background-color: transparent;" vbarPolicy="ALWAYS">
                            <content>
                               <AnchorPane prefHeight="1118.0" prefWidth="1088.0" style="-fx-background-color: transparent;">
                                  <children>
                                     <Pane layoutX="14.0" layoutY="14.0" prefHeight="495.0" prefWidth="338.0" style="-fx-background-radius: 50;" styleClass="backgroundColor" stylesheets="@StyleGradient.css">
                                        <children>
-                                          <ImageView fitHeight="335.0" fitWidth="290.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../icons/imgNotFound.jpg" />
-                                             </image>
-                                          </ImageView>
                                           <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="43.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="119.0" stylesheets="@StyleGradient.css" text="Carrito" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial Black" size="15.0" />
@@ -61,14 +56,14 @@
                                                 </ImageView>
                                              </graphic>
                                           </Button>
+                                          <ImageView fitHeight="311.0" fitWidth="227.0" layoutX="56.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../icons/imgNotFound.jpg" />
+                                             </image>
+                                          </ImageView>
                                        </children></Pane>
                                     <Pane layoutX="375.0" layoutY="14.0" prefHeight="495.0" prefWidth="338.0" style="-fx-background-radius: 50;" styleClass="backgroundColor" stylesheets="@StyleGradient.css">
                                        <children>
-                                          <ImageView fitHeight="335.0" fitWidth="290.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../icons/imgNotFound.jpg" />
-                                             </image>
-                                          </ImageView>
                                           <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="43.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="119.0" stylesheets="@StyleGradient.css" text="Carrito" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial Black" size="15.0" />
@@ -98,15 +93,15 @@
                                                 </ImageView>
                                              </graphic>
                                           </Button>
+                                          <ImageView fitHeight="311.0" fitWidth="227.0" layoutX="56.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../icons/imgNotFound.jpg" />
+                                             </image>
+                                          </ImageView>
                                        </children>
                                     </Pane>
                                     <Pane layoutX="736.0" layoutY="14.0" prefHeight="495.0" prefWidth="338.0" style="-fx-background-radius: 50;" styleClass="backgroundColor" stylesheets="@StyleGradient.css">
                                        <children>
-                                          <ImageView fitHeight="335.0" fitWidth="290.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../icons/imgNotFound.jpg" />
-                                             </image>
-                                          </ImageView>
                                           <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="43.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="119.0" stylesheets="@StyleGradient.css" text="Carrito" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial Black" size="15.0" />
@@ -136,11 +131,16 @@
                                                 </ImageView>
                                              </graphic>
                                           </Button>
+                                          <ImageView fitHeight="311.0" fitWidth="227.0" layoutX="56.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../icons/imgNotFound.jpg" />
+                                             </image>
+                                          </ImageView>
                                        </children>
                                     </Pane>
                                     <Pane layoutX="14.0" layoutY="531.0" prefHeight="495.0" prefWidth="338.0" style="-fx-background-radius: 50;" styleClass="backgroundColor" stylesheets="@StyleGradient.css">
                                        <children>
-                                          <ImageView fitHeight="335.0" fitWidth="290.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="311.0" fitWidth="227.0" layoutX="56.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../../icons/imgNotFound.jpg" />
                                              </image>
@@ -178,11 +178,6 @@
                                     </Pane>
                                     <Pane layoutX="375.0" layoutY="531.0" prefHeight="495.0" prefWidth="338.0" style="-fx-background-radius: 50;" styleClass="backgroundColor" stylesheets="@StyleGradient.css">
                                        <children>
-                                          <ImageView fitHeight="335.0" fitWidth="290.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../icons/imgNotFound.jpg" />
-                                             </image>
-                                          </ImageView>
                                           <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="43.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="119.0" stylesheets="@StyleGradient.css" text="Carrito" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial Black" size="15.0" />
@@ -212,15 +207,15 @@
                                                 </ImageView>
                                              </graphic>
                                           </Button>
+                                          <ImageView fitHeight="311.0" fitWidth="227.0" layoutX="56.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../icons/imgNotFound.jpg" />
+                                             </image>
+                                          </ImageView>
                                        </children>
                                     </Pane>
                                     <Pane layoutX="736.0" layoutY="531.0" prefHeight="495.0" prefWidth="338.0" style="-fx-background-radius: 50;" styleClass="backgroundColor" stylesheets="@StyleGradient.css">
                                        <children>
-                                          <ImageView fitHeight="335.0" fitWidth="290.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../icons/imgNotFound.jpg" />
-                                             </image>
-                                          </ImageView>
                                           <Button alignment="BASELINE_RIGHT" graphicTextGap="10.0" layoutX="43.0" layoutY="418.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="119.0" stylesheets="@StyleGradient.css" text="Carrito" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial Black" size="15.0" />
@@ -250,6 +245,11 @@
                                                 </ImageView>
                                              </graphic>
                                           </Button>
+                                          <ImageView fitHeight="311.0" fitWidth="227.0" layoutX="56.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../icons/imgNotFound.jpg" />
+                                             </image>
+                                          </ImageView>
                                        </children>
                                     </Pane>
                                  </children>
