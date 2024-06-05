@@ -8,6 +8,8 @@
     -fx-background-color: linear-gradient(to right bottom,#00ff30,#00ffff);
 }
 .carritoLabel{
-    -fx-background-color: #ffffff;
+    -fx-background-color:linear-gradient(#dd1dff, rgb(145, 11, 248));
     -fx-border-color:#000000;
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
 }
