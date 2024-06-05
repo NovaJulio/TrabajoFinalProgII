@@ -34,7 +34,7 @@ public class SecondaryController {
         carritoView.setPrefHeight(carritoHeight()+200);
         AnchorPane rowadd = new AnchorPane();
         rowadd.setPrefSize(Double.MAX_VALUE, 200);
-        rowadd.getStylesheets().add("file:/C:/Users/JulioNova/Documents/NetBeansProjects/TranbajoFinalProgII/target/classes/com/mycompany/tranbajofinalprogii/StyleGradient.css");
+        rowadd.getStylesheets().add("file:/"+System.getProperty("user.dir").replace("\\", "/")+ "/target/classes/com/mycompany/tranbajofinalprogii/StyleGradient.css");
         rowadd.getStyleClass().add("carritoLabel");
         carritoView.add(rowadd, 0, i);
         
