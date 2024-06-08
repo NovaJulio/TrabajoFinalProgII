@@ -52,7 +52,7 @@ public class SecondaryController {
         iv.preserveRatioProperty().set(true);
         lbl.setPrefSize(330, 89);
         lbl.setLayoutX(253);
-        lbl.setLayoutY(56);
+        lbl.setLayoutY(20);
         lbl.setFont(Font.font("System", FontWeight.BOLD, 24));
         lbl.setText("LoremIpsum");
         lbl.setTextFill(Color.BLACK);

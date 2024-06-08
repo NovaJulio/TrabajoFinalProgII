@@ -6,6 +6,8 @@ import javafx.fxml.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
 
@@ -13,20 +15,18 @@ public class PrimaryController {
 
     @FXML
     public Pane registerPane;
-    @FXML
     public Pane panel1;
-    @FXML
     public Pane storeLabel;
-    @FXML
     public Pane assetsStore;
-    @FXML
     public Pane goOut;
-    @FXML
     public Pane base;
-    @FXML
     public AnchorPane anchorRoot;
-    @FXML
     public Button logInButton;
+    public Button registerButton;
+    public TextField regUsername;
+    public PasswordField regPass;
+    public PasswordField regPassComfirm;
+    
 
     public void cerra() {
         System.exit(0);
