@@ -3,5 +3,6 @@ com\mycompany\tranbajofinalprogii\Logic\Elemento.class
 com\mycompany\tranbajofinalprogii\PrimaryController.class
 module-info.class
 com\mycompany\tranbajofinalprogii\Logic\cuenta.class
+com\mycompany\tranbajofinalprogii\PrimaryController$1.class
 com\mycompany\tranbajofinalprogii\App.class
 com\mycompany\tranbajofinalprogii\Logic\listaCuentas.class

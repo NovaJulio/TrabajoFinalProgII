@@ -13,7 +13,7 @@
 
 <Pane fx:id="base" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="1116.0" style="-fx-background-color: rgb(31, 31, 31);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tranbajofinalprogii.PrimaryController">
    <children>
-      <AnchorPane fx:id="anchorRoot" layoutX="-74.0" layoutY="-9.0">
+      <AnchorPane fx:id="anchorRoot" layoutX="-74.0" layoutY="-9.0" prefHeight="694.0" prefWidth="1194.0">
          <children>
             <Pane fx:id="registerPane" layoutX="93.0" layoutY="70.0" opacity="0.0" prefHeight="576.0" prefWidth="359.0">
                <children>
@@ -22,17 +22,30 @@
                         <Font name="System Bold" size="48.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="133.0" layoutY="193.0" prefHeight="25.0" prefWidth="163.0" promptText="Juanitp777" />
-                  <Label layoutY="252.0" prefHeight="17.0" prefWidth="67.0" text="Contraseña" textFill="WHITE" />
                   <Label layoutY="197.0" prefHeight="17.0" prefWidth="48.0" text="Usuario" textFill="WHITE" />
-                  <PasswordField layoutX="133.0" layoutY="248.0" prefHeight="25.0" prefWidth="163.0" promptText="Contraseñasegura101010" />
-                  <Button layoutX="166.0" layoutY="381.0" mnemonicParsing="false" text="Crear cuenta">
+                  <TextField fx:id="regUsername" layoutX="133.0" layoutY="193.0" prefHeight="25.0" prefWidth="163.0" promptText="Juanitp777" />
+                  <Label layoutY="252.0" prefHeight="17.0" prefWidth="67.0" text="Contraseña" textFill="WHITE" />
+                  <PasswordField fx:id="regPass" layoutX="133.0" layoutY="248.0" onAction="#regPassSelect" prefHeight="25.0" prefWidth="163.0" promptText="Contraseñasegura101010" />
+                  <AnchorPane fx:id="passReq" layoutX="133.0" layoutY="280.0" opacity="0.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="163.0" text="La contraseña debe tener:" textFill="#a4a4a4" />
+                        <Label layoutY="51.0" prefHeight="17.0" prefWidth="163.0" text="-Minimo 4 numeros" textFill="#a4a4a4" />
+                        <Label layoutY="34.0" prefHeight="17.0" prefWidth="163.0" text="-Minimo una mayuscula" textFill="#a4a4a4" />
+                        <Label layoutY="17.0" prefHeight="17.0" prefWidth="163.0" text="-Minimo 8 caracteres" textFill="#a4a4a4" />
+                        <Label layoutY="68.0" prefHeight="17.0" prefWidth="209.0" text="-Minimo 3 caracteres no alfanumericos" textFill="#a4a4a4" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="confirmpassAnchor" layoutY="297.0">
+                     <children>
+                        <Label layoutY="1.0" prefHeight="17.0" prefWidth="120.0" text="Confirmar contraseña" textFill="WHITE" />
+                        <PasswordField fx:id="regPassComfirm" layoutX="133.0" prefHeight="25.0" prefWidth="163.0" promptText="Contraseñasegura101010" />
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="registerButton" layoutX="166.0" layoutY="381.0" mnemonicParsing="false" onAction="#registerAccount" text="Crear cuenta">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Label layoutY="299.0" prefHeight="17.0" prefWidth="120.0" text="Confirmar contraseña" textFill="WHITE" />
-                  <PasswordField layoutX="133.0" layoutY="298.0" prefHeight="25.0" prefWidth="163.0" promptText="Contraseñasegura101010" />
                   <AnchorPane layoutX="93.0" layoutY="512.0" prefHeight="23.0" prefWidth="235.0">
                      <children>
                         <Label layoutY="3.0" prefHeight="17.0" prefWidth="129.0" text="¿Ya tienes una cuenta?" textFill="WHITE" />

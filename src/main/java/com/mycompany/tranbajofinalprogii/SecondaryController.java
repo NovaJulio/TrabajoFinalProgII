@@ -21,9 +21,7 @@ public class SecondaryController {
 
     @FXML
     AnchorPane carritoTab = new AnchorPane();
-    @FXML
     Button button = new Button();
-    @FXML
     AnchorPane rowAdd = new AnchorPane();
 
     public void cerra() {
@@ -38,24 +36,32 @@ public class SecondaryController {
         }
     }
 
-    public AnchorPane rowadd() {
+//Funcion que crea los paneles del carrito
+    public AnchorPane rowAddCarrito() {
+
+//Creando los elementos de la fila
         AnchorPane rowadd = new AnchorPane();
         Label lbl = new Label();
         Button btt = new Button();
-        
         Image img = new Image("file:src/main/resources/icons/imgNotFound.jpg");
         ImageView iv = new ImageView(img);
+
+//Asignando las caracteristicas a el elemento de la imagen
         iv.setFitHeight(150);
         iv.setFitWidth(162);
         iv.setLayoutX(66);
         iv.setLayoutY(25);
         iv.preserveRatioProperty().set(true);
+
+//Asignando las caracteristicas al label principal
         lbl.setPrefSize(330, 89);
         lbl.setLayoutX(253);
         lbl.setLayoutY(20);
         lbl.setFont(Font.font("System", FontWeight.BOLD, 24));
         lbl.setText("LoremIpsum");
         lbl.setTextFill(Color.BLACK);
+
+//Asignando las caracteristicas al boton
         btt.setPrefSize(108, 43);
         btt.setLayoutX(557);
         btt.setLayoutY(145);
@@ -67,8 +73,12 @@ public class SecondaryController {
         a.setFitHeight(20);
         a.setFitWidth(20);
         btt.setGraphic(a);
+        btt.setOnAction(e->{
+        //Hay que añadir la funcion de eliminar el elemento
+        });
         btt.setStyle("-fx-background-radius: 15;-fx-border-radius: 15;");
 
+//Asignando las caracteristicas al panel principal que contiene todo
         rowadd.setPrefSize(Double.MAX_VALUE, 200);
         rowadd.getStylesheets().add("file:/" + System.getProperty("user.dir"
                 + "").replace("\\", "/") + "/target/classes/com/mycompany/tranbajofinalprogii/StyleGradient.css");
@@ -81,8 +91,7 @@ public class SecondaryController {
 
     public void addElement() {
         carritoView.setPrefHeight(carritoHeight() + 200);
-        carritoView.add(rowadd(), 0, i);
-
+        carritoView.add(rowAddCarrito(), 0, i);
         i++;
     }
 

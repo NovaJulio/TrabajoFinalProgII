@@ -263,7 +263,7 @@
                <content>
                   <AnchorPane fx:id="carritoTab" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="1064.0" layoutY="2.0" mnemonicParsing="false" onAction="#addElement" text="Button" />
+                        <Button fx:id="button" layoutX="1064.0" layoutY="2.0" mnemonicParsing="false" onAction="#addElement" text="Button" />
                         <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="612.0" prefWidth="732.0" style="-fx-background: transparent; -fx-background-color: transparent;">
                            <content>
                               <GridPane fx:id="carritoView" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="0.0" prefWidth="717.0">

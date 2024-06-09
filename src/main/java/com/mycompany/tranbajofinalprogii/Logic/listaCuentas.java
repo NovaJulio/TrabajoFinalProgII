@@ -7,7 +7,7 @@ public class listaCuentas {
 
     cuenta cab;
 
-    listaCuentas() {
+    public listaCuentas() {
         cab = null;
     }
 

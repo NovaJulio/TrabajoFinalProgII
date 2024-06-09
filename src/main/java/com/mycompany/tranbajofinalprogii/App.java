@@ -1,5 +1,6 @@
 package com.mycompany.tranbajofinalprogii;
 
+import com.mycompany.tranbajofinalprogii.Logic.listaCuentas;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,6 +9,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import static javafx.application.Application.launch;
+import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
 import javafx.scene.image.Image;
 import javafx.stage.StageStyle;
 
@@ -15,6 +18,8 @@ import javafx.stage.StageStyle;
  * JavaFX App
  */
 public class App extends Application {
+
+    public listaCuentas list = new listaCuentas();
 
     private static Scene scene;
 
@@ -35,10 +40,14 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        PrimaryController o = new PrimaryController();
+        fxmlLoader.setController(o);
+        o.setUp();
         return fxmlLoader.load();
     }
 
     public static void main(String[] args) {
+
         launch();
     }
 
