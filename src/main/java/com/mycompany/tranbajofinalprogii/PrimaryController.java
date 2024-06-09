@@ -1,6 +1,7 @@
 package com.mycompany.tranbajofinalprogii;
 
 import java.io.IOException;
+
 import javafx.animation.*;
 import javafx.beans.value.*;
 import javafx.fxml.*;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.*;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
@@ -16,20 +18,12 @@ import javafx.util.Duration;
 public class PrimaryController {
 
     @FXML
-    public Pane registerPane;
-    public Pane panel1;
-    public Pane storeLabel;
-    public Pane assetsStore;
-    public Pane goOut;
-    public Pane base;
-    public AnchorPane anchorRoot;
-    public AnchorPane confirmpassAnchor;
-    public AnchorPane passReq;
-    public Button logInButton;
-    public Button registerButton;
+    public Pane registerPane, panel1, storeLabel, assetsStore, goOut, base;
+    public AnchorPane anchorRoot, confirmpassAnchor, passReq;
+    public Button logInButton, registerButton;
     public TextField regUsername;
-    public PasswordField regPass;
-    public PasswordField regPassComfirm;
+    public PasswordField regPass, regPassComfirm;
+    public Label c0, c1, c2, c3, c4;
 
     public void setUp() {
         regPass.focusedProperty().addListener(new ChangeListener<Boolean>() {
@@ -37,7 +31,7 @@ public class PrimaryController {
             public void changed(ObservableValue<? extends Boolean> arg0,
                     Boolean oldPropertyValue, Boolean newPropertyValue) {
                 if (newPropertyValue) {
-                    regPassSelect();
+                    regPassInFocus();
                 } else {
                     regPassOutfocus();
                 }
@@ -49,6 +43,7 @@ public class PrimaryController {
         System.exit(0);
     }
 
+    // Lleva la pantalla a registrar
     public void goToRegister() {
         FadeTransition fade2 = new FadeTransition();
         fade2.setNode(panel1);
@@ -69,6 +64,7 @@ public class PrimaryController {
         fade.play();
     }
 
+    // Devuelve la pantalla a login
     public void goToLogIn() {
         FadeTransition fade = new FadeTransition();
         fade.setNode(registerPane);
@@ -94,8 +90,9 @@ public class PrimaryController {
         fade2.play();
     }
 
+    // Animacion antes de cambiar
     public void goToPage() throws IOException {
-        FadeTransition fade2 = new FadeTransition(Duration.millis(500), panel1);
+        FadeTransition fade2 = new FadeTransition(Duration.seconds(0.5), panel1);
         fade2.setInterpolator(Interpolator.EASE_IN);
         fade2.setFromValue(1);
         fade2.setToValue(0);
@@ -105,24 +102,25 @@ public class PrimaryController {
         scale.setNode(storeLabel);
         scale.setToX(464);
         scale.setDuration(Duration.seconds(15));
-        scale.setDelay(Duration.millis(500));
+        scale.setDelay(Duration.seconds(0.5));
         scale.play();
         TranslateTransition trans = new TranslateTransition();
         trans.setInterpolator(Interpolator.EASE_IN);
         trans.setNode(assetsStore);
-        trans.setDelay(Duration.millis(500));
+        trans.setDelay(Duration.seconds(0.5));
         trans.setToX(232);
         trans.play();
         TranslateTransition trans1 = new TranslateTransition();
         trans1.setInterpolator(Interpolator.LINEAR);
         trans1.setNode(goOut);
         trans1.setToY(-682);
-        trans1.setDelay(Duration.millis(1000));
-        trans1.setDuration(Duration.millis(1000));
+        trans1.setDelay(Duration.seconds(1));
+        trans1.setDuration(Duration.seconds(0.5));
         trans1.play();
         getScene2();
     }
 
+    // Cambio de pagina
     public void getScene2() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("secondary.fxml"));
         Scene scene = logInButton.getScene();
@@ -140,17 +138,15 @@ public class PrimaryController {
         tl.play();
     }
 
-    public boolean minReqPass(String pass) {
+    // Validador de contraseñas
+    public int minReqPass(String pass) {
         char[] car = pass.toCharArray();
         int digitCount = 0;
         int upperCount = 0;
         int othersCount = 0;
-        Alert a = new Alert(AlertType.ERROR);
-        a.initStyle(StageStyle.UNDECORATED);
+
         if (car.length < 8) {
-            a.setContentText("La contraseña tiene menos de 8 caracteres");
-            a.show();
-            return false;
+            return 1;
         }
         for (int i = 0; i < car.length; i++) {
             if (Character.isDigit(car[i])) {
@@ -163,29 +159,47 @@ public class PrimaryController {
             }
         }
         if (digitCount < 4) {
-            System.out.println("La contraseña debe contar con al menos 4 numeros");
-            return false;
-        } else if (upperCount == 0) {
-            System.out.println("La contraseña debe contar con al menos una mayuscula");
-            return false;
+            return 2;
+        } else if (upperCount < 1) {
+            return 3;
         } else if (othersCount < 3) {
-            System.out.println("La contraseña debe contar con al menos 3 caracteres no alfanumericos");
-            return false;
+            return 4;
         } else {
-            return true;
+            return 0;
         }
 
     }
 
+    // Accion de registrar cuenta
     public void registerAccount() {
-        if (minReqPass(regPass.getText())) {
-            System.out.println("La contraseña es valida");
-        } else {
-
+        Alert a = new Alert(AlertType.ERROR);
+        a.initStyle(StageStyle.UNDECORATED);
+        switch (minReqPass(regPass.getText())) {
+            case 0:
+                break;
+            case 1:
+                a.setContentText("La contraseña tiene menos de 8 caracteres");
+                a.show();
+                break;
+            case 2:
+                a.setContentText("La contraseña debe contar con al menos 4 numeros");
+                a.show();
+                break;
+            case 3:
+                a.setContentText("La contraseña debe contar con al menos una mayuscula");
+                a.show();
+                break;
+            case 4:
+                a.setContentText("La contraseña debe contar con al menos 3 caracteres no alfanumericos");
+                a.show();
+                break;
+            default:
+                break;
         }
     }
 
-    public void regPassSelect() {
+    // Animaciones de sugerencias de contraseñas
+    public void regPassInFocus() {
         TranslateTransition trans1 = new TranslateTransition(Duration.seconds(0.2), confirmpassAnchor);
         TranslateTransition trans2 = new TranslateTransition(Duration.seconds(0.2), registerButton);
         trans1.setByY(87);
@@ -210,5 +224,48 @@ public class PrimaryController {
         trans1.play();
         trans2.play();
         fade.play();
+    }
+
+    // Advertencia de contraseña
+    public void warningPass() {
+        switch (minReqPass(regPass.getText())) {
+            case 0:
+                c0.setTextFill(Color.rgb(164, 164, 164));
+                c1.setTextFill(Color.rgb(164, 164, 164));
+                c2.setTextFill(Color.rgb(164, 164, 164));
+                c3.setTextFill(Color.rgb(164, 164, 164));
+                c4.setTextFill(Color.rgb(164, 164, 164));
+                break;
+            case 1:
+                c0.setTextFill(Color.rgb(164, 164, 164));
+                c1.setTextFill(Color.RED);
+                c2.setTextFill(Color.rgb(164, 164, 164));
+                c3.setTextFill(Color.rgb(164, 164, 164));
+                c4.setTextFill(Color.rgb(164, 164, 164));
+                break;
+            case 2:
+                c0.setTextFill(Color.rgb(164, 164, 164));
+                c1.setTextFill(Color.rgb(164, 164, 164));
+                c2.setTextFill(Color.RED);
+                c3.setTextFill(Color.rgb(164, 164, 164));
+                c4.setTextFill(Color.rgb(164, 164, 164));
+                break;
+            case 3:
+                c0.setTextFill(Color.rgb(164, 164, 164));
+                c1.setTextFill(Color.rgb(164, 164, 164));
+                c2.setTextFill(Color.rgb(164, 164, 164));
+                c3.setTextFill(Color.RED);
+                c4.setTextFill(Color.rgb(164, 164, 164));
+                break;
+            case 4:
+                c0.setTextFill(Color.rgb(164, 164, 164));
+                c1.setTextFill(Color.rgb(164, 164, 164));
+                c2.setTextFill(Color.rgb(164, 164, 164));
+                c3.setTextFill(Color.rgb(164, 164, 164));
+                c4.setTextFill(Color.RED);
+                break;
+            default:
+                break;
+        }
     }
 }

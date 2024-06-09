@@ -25,14 +25,14 @@
                   <Label layoutY="197.0" prefHeight="17.0" prefWidth="48.0" text="Usuario" textFill="WHITE" />
                   <TextField fx:id="regUsername" layoutX="133.0" layoutY="193.0" prefHeight="25.0" prefWidth="163.0" promptText="Juanitp777" />
                   <Label layoutY="252.0" prefHeight="17.0" prefWidth="67.0" text="Contraseña" textFill="WHITE" />
-                  <PasswordField fx:id="regPass" layoutX="133.0" layoutY="248.0" onAction="#regPassSelect" prefHeight="25.0" prefWidth="163.0" promptText="Contraseñasegura101010" />
+                  <PasswordField fx:id="regPass" layoutX="133.0" layoutY="248.0" onKeyTyped="#warningPass" prefHeight="25.0" prefWidth="163.0" promptText="Contraseñasegura101010" />
                   <AnchorPane fx:id="passReq" layoutX="133.0" layoutY="280.0" opacity="0.0">
                      <children>
-                        <Label prefHeight="17.0" prefWidth="163.0" text="La contraseña debe tener:" textFill="#a4a4a4" />
-                        <Label layoutY="51.0" prefHeight="17.0" prefWidth="163.0" text="-Minimo 4 numeros" textFill="#a4a4a4" />
-                        <Label layoutY="34.0" prefHeight="17.0" prefWidth="163.0" text="-Minimo una mayuscula" textFill="#a4a4a4" />
-                        <Label layoutY="17.0" prefHeight="17.0" prefWidth="163.0" text="-Minimo 8 caracteres" textFill="#a4a4a4" />
-                        <Label layoutY="68.0" prefHeight="17.0" prefWidth="209.0" text="-Minimo 3 caracteres no alfanumericos" textFill="#a4a4a4" />
+                        <Label fx:id="c0" prefHeight="17.0" prefWidth="163.0" text="La contraseña debe tener:" textFill="#a4a4a4" />
+                        <Label fx:id="c1" layoutY="17.0" prefHeight="17.0" prefWidth="163.0" text="-Minimo 8 caracteres" textFill="#a4a4a4" />
+                        <Label fx:id="c2" layoutY="51.0" prefHeight="17.0" prefWidth="163.0" text="-Minimo 4 numeros" textFill="#a4a4a4" />
+                        <Label fx:id="c3" layoutY="34.0" prefHeight="17.0" prefWidth="163.0" text="-Minimo una mayuscula" textFill="#a4a4a4" />
+                        <Label fx:id="c4" layoutY="68.0" prefHeight="17.0" prefWidth="209.0" text="-Minimo 3 caracteres no alfanumericos" textFill="#a4a4a4" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="confirmpassAnchor" layoutY="297.0">
