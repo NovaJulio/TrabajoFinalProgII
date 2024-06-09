@@ -16,6 +16,7 @@ import javafx.scene.layout.*;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+@SuppressWarnings("exports")
 public class PrimaryController {
 
     @FXML

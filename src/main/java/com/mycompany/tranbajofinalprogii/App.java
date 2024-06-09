@@ -8,9 +8,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import static javafx.application.Application.launch;
-import javafx.fxml.FXML;
-import javafx.scene.control.PasswordField;
 import javafx.scene.image.Image;
 import javafx.stage.StageStyle;
 
@@ -19,12 +16,13 @@ import javafx.stage.StageStyle;
  */
 public class App extends Application {
 
+    @SuppressWarnings("exports")
     public listaCuentas list = new listaCuentas();
 
     private static Scene scene;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"), 1116, 682);
         stage.setScene(scene);
         Image icon = new Image("file:src/main/resources/icons/84f06681-fd7f-4a69-afae-cf77700183ea.png");
@@ -40,9 +38,6 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        PrimaryController o = new PrimaryController();
-        fxmlLoader.setController(o);
-        o.setUp();
         return fxmlLoader.load();
     }
 
