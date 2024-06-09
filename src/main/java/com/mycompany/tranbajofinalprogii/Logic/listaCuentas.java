@@ -30,7 +30,8 @@ public class listaCuentas {
             return null;
         }
     }
-    void createCuenta(TextField user, PasswordField pass){
-        
+
+    void createCuenta(TextField user, PasswordField pass) {
+
     }
 }

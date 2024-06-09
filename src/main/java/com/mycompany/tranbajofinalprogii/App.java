@@ -20,10 +20,12 @@ public class App extends Application {
     public listaCuentas list = new listaCuentas();
 
     private static Scene scene;
+    static PrimaryController o;
 
     @Override
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"), 1116, 682);
+        o.setUp();
         stage.setScene(scene);
         Image icon = new Image("file:src/main/resources/icons/84f06681-fd7f-4a69-afae-cf77700183ea.png");
         stage.getIcons().add(icon);
@@ -37,7 +39,9 @@ public class App extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
+        o = new PrimaryController();
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        fxmlLoader.setController(o);
         return fxmlLoader.load();
     }
 

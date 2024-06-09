@@ -2,16 +2,12 @@ package com.mycompany.tranbajofinalprogii;
 
 import java.io.IOException;
 import javafx.animation.*;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import javafx.beans.value.*;
 import javafx.fxml.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.Alert.*;
 import javafx.scene.layout.*;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -38,12 +34,12 @@ public class PrimaryController {
     public void setUp() {
         regPass.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
-            public void changed(ObservableValue<? extends Boolean> arg0, 
+            public void changed(ObservableValue<? extends Boolean> arg0,
                     Boolean oldPropertyValue, Boolean newPropertyValue) {
                 if (newPropertyValue) {
-                    System.out.println("Textfield on focus");
+                    regPassSelect();
                 } else {
-                    System.out.println("Textfield out focus");
+                    regPassOutfocus();
                 }
             }
         });
@@ -76,20 +72,23 @@ public class PrimaryController {
     public void goToLogIn() {
         FadeTransition fade = new FadeTransition();
         fade.setNode(registerPane);
-        fade.setInterpolator(Interpolator.EASE_IN);;
+        fade.setInterpolator(Interpolator.EASE_IN);
+        ;
         fade.setDuration(Duration.millis(500));
         fade.setToValue(0);
         fade.play();
         TranslateTransition translate = new TranslateTransition();
         translate.setNode(goOut);
-        translate.setInterpolator(Interpolator.EASE_IN);;
+        translate.setInterpolator(Interpolator.EASE_IN);
+        ;
         translate.setDelay(Duration.millis(500));
         translate.setDuration(Duration.millis(1000));
         translate.setByX(-515);
         translate.play();
         FadeTransition fade2 = new FadeTransition();
         fade2.setNode(panel1);
-        fade2.setInterpolator(Interpolator.EASE_IN);;
+        fade2.setInterpolator(Interpolator.EASE_IN);
+        ;
         fade2.setToValue(1);
         fade2.setDelay(Duration.millis(translate.getDelay().toMillis() + 1000));
         fade2.play();
@@ -187,13 +186,27 @@ public class PrimaryController {
     }
 
     public void regPassSelect() {
-        TranslateTransition trans1 = new TranslateTransition(Duration.seconds(0.5), confirmpassAnchor);
-        TranslateTransition trans2 = new TranslateTransition(Duration.seconds(0.5), registerButton);
+        TranslateTransition trans1 = new TranslateTransition(Duration.seconds(0.2), confirmpassAnchor);
+        TranslateTransition trans2 = new TranslateTransition(Duration.seconds(0.2), registerButton);
         trans1.setByY(87);
         trans2.setByY(43);
-        FadeTransition fade = new FadeTransition(Duration.seconds(0.2), passReq);
-        fade.setDelay(Duration.seconds(0.45));
-        fade.setByValue(1);
+        FadeTransition fade = new FadeTransition(Duration.seconds(0.1), passReq);
+        fade.setDelay(Duration.seconds(0.17));
+        fade.setToValue(1);
+        trans1.play();
+        trans2.play();
+        fade.play();
+    }
+
+    public void regPassOutfocus() {
+        FadeTransition fade = new FadeTransition(Duration.seconds(0.1), passReq);
+        fade.setToValue(0);
+        TranslateTransition trans1 = new TranslateTransition(Duration.seconds(0.2), confirmpassAnchor);
+        TranslateTransition trans2 = new TranslateTransition(Duration.seconds(0.2), registerButton);
+        trans1.setDelay(Duration.seconds(0.12));
+        trans2.setDelay(Duration.seconds(0.12));
+        trans1.setByY(-87);
+        trans2.setByY(-43);
         trans1.play();
         trans2.play();
         fade.play();
