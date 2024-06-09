@@ -1,7 +1,6 @@
 package com.mycompany.tranbajofinalprogii;
 
 import java.io.IOException;
-
 import javafx.animation.*;
 import javafx.beans.value.*;
 import javafx.fxml.*;
