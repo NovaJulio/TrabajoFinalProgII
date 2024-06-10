@@ -1,6 +1,9 @@
 package com.mycompany.tranbajofinalprogii;
 
 import java.io.IOException;
+
+import com.mycompany.tranbajofinalprogii.Logic.cuenta;
+
 import javafx.animation.*;
 import javafx.beans.value.*;
 import javafx.fxml.*;
@@ -22,7 +25,7 @@ public class PrimaryController {
     public Button logInButton, registerButton;
     public TextField regUsername;
     public PasswordField regPass, regPassComfirm;
-    public Label c0, c1, c2, c3, c4;
+    public Label c0, c1, c2, c3, c4, confirmPassLabel;
 
     public void setUp() {
         regPass.focusedProperty().addListener(new ChangeListener<Boolean>() {
@@ -170,7 +173,7 @@ public class PrimaryController {
     }
 
     // Accion de registrar cuenta
-    public void registerAccount() {
+    public void registerAccount() throws IOException {
         Alert a = new Alert(AlertType.ERROR);
         a.initStyle(StageStyle.UNDECORATED);
         switch (minReqPass(regPass.getText())) {
@@ -179,35 +182,54 @@ public class PrimaryController {
             case 1:
                 a.setContentText("La contraseña tiene menos de 8 caracteres");
                 a.show();
-                break;
+                return;
             case 2:
                 a.setContentText("La contraseña debe contar con al menos 4 numeros");
                 a.show();
-                break;
+                return;
             case 3:
                 a.setContentText("La contraseña debe contar con al menos una mayuscula");
                 a.show();
-                break;
+                return;
             case 4:
                 a.setContentText("La contraseña debe contar con al menos 3 caracteres no alfanumericos");
                 a.show();
-                break;
-            default:
-                break;
+                return;
         }
+
+        if (warningPassConfirm()) {
+            cuenta info = new cuenta(regUsername.getText(), regPass.getText());
+            App.listCuentas.createnode(info);
+            regUsername.setText("");
+            regPass.setText("");
+            regPassComfirm.setText("");
+            saveAccounList();
+            cuenta j = (cuenta) App.listCuentas.cab;
+            do {
+                System.out.println(j.username);
+                j = (cuenta) j.next;
+            } while (j != (cuenta) App.listCuentas.cab);
+        } else {
+            a.setContentText("Las contraseñas no son iguales");
+            a.show();
+        }
+
     }
 
     // Animaciones de sugerencias de contraseñas
     public void regPassInFocus() {
         TranslateTransition trans1 = new TranslateTransition(Duration.seconds(0.2), confirmpassAnchor);
         TranslateTransition trans2 = new TranslateTransition(Duration.seconds(0.2), registerButton);
+        TranslateTransition trans3 = new TranslateTransition(Duration.seconds(0.2), confirmPassLabel);
         trans1.setByY(87);
-        trans2.setByY(43);
+        trans3.setByY(87);
+        trans2.setByY(confirmPassLabel.isVisible() ? 53 : 43);
         FadeTransition fade = new FadeTransition(Duration.seconds(0.1), passReq);
         fade.setDelay(Duration.seconds(0.17));
         fade.setToValue(1);
         trans1.play();
         trans2.play();
+        trans3.play();
         fade.play();
     }
 
@@ -216,12 +238,16 @@ public class PrimaryController {
         fade.setToValue(0);
         TranslateTransition trans1 = new TranslateTransition(Duration.seconds(0.2), confirmpassAnchor);
         TranslateTransition trans2 = new TranslateTransition(Duration.seconds(0.2), registerButton);
+        TranslateTransition trans3 = new TranslateTransition(Duration.seconds(0.2), confirmPassLabel);
         trans1.setDelay(Duration.seconds(0.12));
         trans2.setDelay(Duration.seconds(0.12));
+        trans3.setDelay(Duration.seconds(0.12));
         trans1.setByY(-87);
-        trans2.setByY(-43);
+        trans3.setByY(-87);
+        trans2.setByY(confirmPassLabel.isVisible() ? -53 : -43);
         trans1.play();
         trans2.play();
+        trans3.play();
         fade.play();
     }
 
@@ -267,4 +293,20 @@ public class PrimaryController {
                 break;
         }
     }
+
+    public boolean warningPassConfirm() {
+        if (!regPass.getText().equals(regPassComfirm.getText())) {
+            confirmPassLabel.setVisible(true);
+            return false;
+        } else {
+            confirmPassLabel.setVisible(false);
+            return true;
+        }
+    }
+
+    // Guatdar archivo con los elementos de la lista
+    public void saveAccounList() throws IOException {
+        App.listCuentas.savelist(System.getProperty("user.dir") + "\\src\\main\\resources\\Data\\AccountList.txt");
+    }
+
 }

@@ -1,6 +1,6 @@
 package com.mycompany.tranbajofinalprogii;
 
-import com.mycompany.tranbajofinalprogii.Logic.listaCuentas;
+import com.mycompany.tranbajofinalprogii.Logic.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,13 +10,10 @@ import java.io.IOException;
 import javafx.scene.image.Image;
 import javafx.stage.StageStyle;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
 
     @SuppressWarnings("exports")
-    public listaCuentas list = new listaCuentas();
+    public static list listCuentas = new list();
 
     private static Scene scene;
     static PrimaryController o;
@@ -45,6 +42,21 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+
+        try {
+            listCuentas.importList(System.getProperty("user.dir") +
+                    "\\src\\main\\resources\\Data\\AccountList.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        /*
+         * cuenta j = (cuenta) listCuentas.cab;
+         * do {
+         * System.out.println(j.nodeToJson());
+         * j = (cuenta) j.next;
+         * } while (j != (cuenta) listCuentas.cab);
+         */
 
         launch();
     }

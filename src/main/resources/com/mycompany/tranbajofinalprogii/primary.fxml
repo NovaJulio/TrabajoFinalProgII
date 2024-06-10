@@ -38,9 +38,10 @@
                   <AnchorPane fx:id="confirmpassAnchor" layoutY="297.0">
                      <children>
                         <Label layoutY="1.0" prefHeight="17.0" prefWidth="120.0" text="Confirmar contraseña" textFill="WHITE" />
-                        <PasswordField fx:id="regPassComfirm" layoutX="133.0" prefHeight="25.0" prefWidth="163.0" promptText="Contraseñasegura101010" />
+                        <PasswordField fx:id="regPassComfirm" layoutX="133.0" onKeyTyped="#warningPassConfirm" prefHeight="25.0" prefWidth="163.0" promptText="Contraseñasegura101010" />
                      </children>
                   </AnchorPane>
+                  <Label fx:id="confirmPassLabel" layoutX="133.0" layoutY="331.0" text="Las contraseñas no son iguales*" textFill="RED" visible="false" />
                   <Button fx:id="registerButton" layoutX="166.0" layoutY="381.0" mnemonicParsing="false" onAction="#registerAccount" text="Crear cuenta">
                      <font>
                         <Font size="14.0" />
