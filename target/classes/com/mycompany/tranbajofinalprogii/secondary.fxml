@@ -278,6 +278,21 @@
                      </children>
                   </AnchorPane>
                </content></Tab>
+            <Tab text="Lista de deseos">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Historial de compra">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Opciones de administrador">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
          </tabs>
       </TabPane>
       <ImageView fitHeight="23.0" fitWidth="22.0" layoutX="1091.0" layoutY="3.0" onMouseClicked="#cerra" pickOnBounds="true" preserveRatio="true">
