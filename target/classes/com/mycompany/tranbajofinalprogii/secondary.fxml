@@ -274,7 +274,7 @@
                            </content>
                         </ScrollPane>
                         <Button layoutX="799.0" layoutY="449.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="130.0" text="Comprar" />
-                        <ComboBox fx:id="Filter1" layoutX="789.0" layoutY="56.0" prefWidth="150.0" promptText="Filtrar" onMouseClicked="#addElement" />
+                        <ComboBox fx:id="Filter1" layoutX="789.0" layoutY="56.0" prefWidth="150.0" promptText="Filtrar" />
                      </children>
                   </AnchorPane>
                </content></Tab>
