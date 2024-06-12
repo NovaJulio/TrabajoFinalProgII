@@ -1,1 +1,1 @@
-{"1":{"password":"Jene4453...","isAdmin":false,"username":"Julio"}}
+{"1":{"password":"Jene4453...","isAdmin":true,"username":"Julio"}}

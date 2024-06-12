@@ -54,12 +54,13 @@ public class list {
         if (isEmpty()) {
             return null;
         } else {
-            node j = cab;
+            cuenta z = (cuenta) a;
+            cuenta j = (cuenta) cab;
             do {
-                if (j == a) {
+                if (j.username.equals(z.username)) {
                     return j;
                 } else {
-                    j = j.next;
+                    j = (cuenta) j.next;
                 }
             } while (j != cab);
             return null;
@@ -188,11 +189,11 @@ public class list {
             jsoStringBuilder.append(line);
             line = br.readLine();
         }
-        JSONObject hash = new JSONObject(jsoStringBuilder);
+        JSONObject hash = new JSONObject(jsoStringBuilder.toString());
         try {
             int i = 1;
             while (hash.has("" + i)) {
-                node j = new cuenta(new JSONObject(hash.get("" + i)));
+                node j = new cuenta(hash.getJSONObject("" + i));
                 createnode(j);
                 i++;
             }
@@ -221,9 +222,7 @@ public class list {
             jsoStringBuilder.append(line);
             line = br.readLine();
         }
-        System.out.println(jsoStringBuilder.toString());
-
-        JSONObject hash = new JSONObject(jsoStringBuilder);
+        JSONObject hash = new JSONObject(jsoStringBuilder.toString());
         try {
             int i = 1;
             JSONObject o;
