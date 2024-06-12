@@ -3,6 +3,7 @@ package com.mycompany.tranbajofinalprogii;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -19,6 +20,7 @@ public class SecondaryController {
     AnchorPane carritoTab = new AnchorPane();
     Button button = new Button();
     AnchorPane rowAdd = new AnchorPane();
+    Tab opOption = new Tab();
 
     public void cerra() {
         System.exit(0);
@@ -88,6 +90,11 @@ public class SecondaryController {
     public void addElement() {
         carritoView.setPrefHeight(carritoHeight() + 200);
         carritoView.add(rowAddCarrito(), 0, i);
+        if (opOption.isDisable()) {
+            opOption.setDisable(false);
+        } else {
+            opOption.setDisable(true);
+        }
         i++;
     }
 

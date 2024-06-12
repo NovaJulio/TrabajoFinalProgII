@@ -153,7 +153,7 @@ public class list {
         File file = new File(url);
         FileWriter fw = new FileWriter(file);
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(listToJson().toString());
+        bw.write(listToJson().toString(2));
         bw.close();
     }
 
@@ -164,6 +164,7 @@ public class list {
         int i = 1;
         do {
             hash.put("" + i, j.nodeToJson());
+            j = j.next;
             i++;
         } while (j != cab);
         return hash;
