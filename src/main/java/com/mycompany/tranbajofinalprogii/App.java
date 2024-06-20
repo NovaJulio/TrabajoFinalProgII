@@ -22,6 +22,8 @@ public class App extends Application {
     public static list currentCarrito = new list();
     @SuppressWarnings("exports")
     public static list currentHistory = new list();
+    @SuppressWarnings("exports")
+    public static list shop = new list();
 
     private static Scene scene;
     static PrimaryController o;

@@ -170,7 +170,7 @@ public class list {
         return hash;
     }
 
-    // Importa la lista de nodes
+    //Importa la lista de nodes
     public void importList(String url) throws IOException {
         File file = new File(url);
         if (!file.exists()) {

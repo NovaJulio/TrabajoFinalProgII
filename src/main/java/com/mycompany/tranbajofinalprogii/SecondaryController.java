@@ -87,7 +87,7 @@ public class SecondaryController {
         return rowadd;
     }
 
-    public void addElement() {
+    public void addElementToCarrito() {
         carritoView.setPrefHeight(carritoHeight() + 200);
         carritoView.add(rowAddCarrito(), 0, i);
         if (opOption.isDisable()) {
@@ -96,6 +96,90 @@ public class SecondaryController {
             opOption.setDisable(true);
         }
         i++;
+    }
+    
+    // Funcion que crea los paneles de la tienda
+    public AnchorPane AddTienda(){
+        
+        // Creando los elementos
+        AnchorPane addtienda = new AnchorPane();
+        Label lbl = new Label();
+        Label lbl2 = new Label();
+        Label lbl3 = new Label();
+        Button btt = new Button();
+        Button btt2 = new Button();
+        Image img = new Image("file:src/main/resources/icons/imgNotFound.jpg");
+        ImageView iv = new ImageView(img);
+        
+        // Asignando las caracteristicas a el elemento de la imagen
+        iv.setFitWidth(338);
+        iv.setFitHeight(495);
+        iv.setLayoutX(14);
+        iv.setLayoutY(14);
+        iv.preserveRatioProperty().set(true);
+        
+        // Asignando las caracteristicas a los labels
+        lbl.setPrefSize(311, 37);
+        lbl.setLayoutX(14);
+        lbl.setLayoutY(6);
+        lbl.setFont(Font.font("System", FontWeight.BOLD, 24));
+        lbl.setText("Producto");
+        lbl.setTextFill(Color.BLACK);
+        
+        lbl2.setPrefSize(311, 37);
+        lbl2.setLayoutX(14);
+        lbl2.setLayoutY(340);
+        lbl2.setFont(Font.font("System", FontWeight.BOLD, 24));
+        lbl2.setText("Precio");
+        lbl2.setTextFill(Color.BLACK);
+        
+        lbl3.setPrefSize(311, 37);
+        lbl3.setLayoutX(14);
+        lbl3.setLayoutY(377);
+        lbl3.setFont(Font.font("System", FontWeight.BOLD, 24));
+        lbl3.setText("Tipo de producto");
+        lbl3.setTextFill(Color.BLACK);
+        
+        // Asignando las caracteristicas a los botones
+        btt.setPrefSize(119, 55);
+        btt.setLayoutX(43);
+        btt.setLayoutY(418);
+        btt.setFont(Font.font("System", FontWeight.BOLD, 12));
+        btt.setText("Carrito");
+        Image carrito = new Image("file:src/main/resources/icons/carrito.png");
+        ImageView a = new ImageView(carrito);
+        a.setFitHeight(30);
+        a.setFitWidth(30);
+        btt.setOnAction(e -> {
+            // Hay que añadir la funcion de añadir el elemento al carro
+        });
+        
+        btt2.setPrefSize(119, 55);
+        btt2.setLayoutX(43);
+        btt2.setLayoutY(418);
+        btt2.setFont(Font.font("System", FontWeight.BOLD, 12));
+        btt2.setText("Deseos");
+        Image deseos = new Image("file:src/main/resources/icons/Corazon.png");
+        ImageView b = new ImageView(deseos);
+        b.setFitHeight(30);
+        b.setFitWidth(30);
+        btt.setOnAction(e -> {
+            // Hay que añadir la funcion de añadir el elemento a favoritos
+        });
+        
+        // Asignando las caracteristicas al panel principal que contiene todo
+        addtienda.setPrefSize(338, 495);
+        addtienda.getStylesheets().add("file:/" + System.getProperty("user.dir"
+                + "").replace("\\", "/") + "/target/classes/com/mycompany/tranbajofinalprogii/StyleGradient.css");
+        addtienda.getStyleClass().add("carritoLabel");
+        addtienda.getChildren().add(lbl);
+        addtienda.getChildren().add(lbl2);
+        addtienda.getChildren().add(lbl3);
+        addtienda.getChildren().add(btt);
+        addtienda.getChildren().add(btt2);
+        addtienda.getChildren().add(iv);
+        
+        return addtienda;
     }
 
 }

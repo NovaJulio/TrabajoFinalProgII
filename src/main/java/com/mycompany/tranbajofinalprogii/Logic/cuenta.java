@@ -21,7 +21,7 @@ public class cuenta extends node {
         this.username = username;
         this.password = password;
     }
-
+    
     public cuenta(JSONObject d) throws IOException {
         this.username = d.getString("username");
         this.password = d.getString("password");
