@@ -14,6 +14,8 @@ public class App extends Application {
 
     @SuppressWarnings("exports")
     public static list listCuentas = new list();
+    @SuppressWarnings("exports")
+    public static cuenta currentAccount;
 
     private static Scene scene;
     static PrimaryController o;

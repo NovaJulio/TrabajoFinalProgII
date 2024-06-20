@@ -81,7 +81,7 @@
                         <Font name="System Bold" size="48.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="80.0" layoutY="193.0" prefHeight="25.0" prefWidth="163.0" promptText="Juanitp777" />
+                  <TextField fx:id="logInUsername" layoutX="80.0" layoutY="193.0" prefHeight="25.0" prefWidth="163.0" promptText="Juanitp777" />
                   <AnchorPane layoutX="33.0" layoutY="515.0">
                      <children>
                         <Label layoutY="3.0" prefHeight="17.0" prefWidth="110.0" text="¿No tienes cuenta?" textFill="WHITE" />
@@ -90,8 +90,8 @@
                   </AnchorPane>
                   <Label layoutY="252.0" prefHeight="17.0" prefWidth="67.0" text="Contraseña" textFill="WHITE" />
                   <Label layoutY="197.0" prefHeight="17.0" prefWidth="48.0" text="Usuario" textFill="WHITE" />
-                  <PasswordField layoutX="80.0" layoutY="248.0" prefHeight="25.0" prefWidth="163.0" promptText="Contraseñasegura101010" />
-                  <Button fx:id="logInButton" layoutX="113.0" layoutY="381.0" mnemonicParsing="false" onAction="#goToPage" text="Iniciar sesion">
+                  <PasswordField fx:id="logInPassword" layoutX="80.0" layoutY="248.0" prefHeight="25.0" prefWidth="163.0" promptText="Contraseñasegura101010" />
+                  <Button fx:id="logInButton" layoutX="113.0" layoutY="381.0" mnemonicParsing="false" onAction="#logIn" text="Iniciar sesion">
                      <font>
                         <Font size="14.0" />
                      </font>

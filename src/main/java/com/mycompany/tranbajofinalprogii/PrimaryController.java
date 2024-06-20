@@ -23,8 +23,8 @@ public class PrimaryController {
     public Pane registerPane, panel1, storeLabel, assetsStore, goOut, base;
     public AnchorPane anchorRoot, confirmpassAnchor, passReq;
     public Button logInButton, registerButton;
-    public TextField regUsername;
-    public PasswordField regPass, regPassComfirm;
+    public TextField regUsername, logInUsername;
+    public PasswordField regPass, regPassComfirm, logInPassword;
     public Label c0, c1, c2, c3, c4, confirmPassLabel;
 
     public void setUp() {
@@ -122,7 +122,7 @@ public class PrimaryController {
         getScene2();
     }
 
-    // Cambio de pagina
+    // Cambia de pagina a la tienda
     public void getScene2() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("secondary.fxml"));
         Scene scene = logInButton.getScene();
@@ -307,6 +307,39 @@ public class PrimaryController {
     // Guatdar archivo con los elementos de la lista
     public void saveAccounList() throws IOException {
         App.listCuentas.savelist(System.getProperty("user.dir") + "\\src\\main\\resources\\Data\\AccountList.txt");
+    }
+
+    // Iniciar sesion
+    public void logIn() {
+        String password = logInPassword.getText();
+        String username = logInUsername.getText();
+        cuenta j = (cuenta) App.listCuentas.cab;
+        j = getUsernameAccount(username, j);
+        if (!j.username.equals(username)) {
+            System.out.println("No se ha encontrado la cuenta");
+            return;
+        }
+        if (!j.password.equals(password)) {
+            System.out.println("Contraseña incorrecta");
+            return;
+        }
+        App.currentAccount = j;
+        try {
+            goToPage();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private cuenta getUsernameAccount(String username, cuenta j) {
+        do {
+            if (j.username.equals(username)) {
+                return j;
+            } else {
+                j = (cuenta) j.next;
+            }
+        } while (j != App.listCuentas.cab);
+        return j;
     }
 
 }
