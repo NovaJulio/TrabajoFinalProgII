@@ -3,10 +3,10 @@ package com.mycompany.tranbajofinalprogii.Logic;
 import org.json.JSONObject;
 
 public class Elemento extends node {
-    String elementName;
-    String imgDir;
-    String tag;
-    float price;
+    public String elementName;
+    public String imgDir;
+    public String tag;
+    public float price;
 
     public Elemento(String elementName, String imgDir, String tag, float price) {
         this.elementName = elementName;

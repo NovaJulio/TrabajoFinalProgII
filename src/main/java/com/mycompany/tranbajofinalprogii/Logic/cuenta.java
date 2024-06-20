@@ -21,14 +21,11 @@ public class cuenta extends node {
         this.username = username;
         this.password = password;
     }
-    
+
     public cuenta(JSONObject d) throws IOException {
         this.username = d.getString("username");
         this.password = d.getString("password");
         this.isAdmin = d.getBoolean("isAdmin");
-        this.carrito = d.getJSONArray("carrito");
-        this.wishList = d.getJSONArray("wishList");
-        this.history = d.getJSONArray("history");
     }
 
     @Override

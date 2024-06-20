@@ -1,29 +1,52 @@
 package com.mycompany.tranbajofinalprogii;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import com.mycompany.tranbajofinalprogii.Logic.Elemento;
+import com.mycompany.tranbajofinalprogii.Logic.node;
+
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 @SuppressWarnings("exports")
-public class SecondaryController {
+public class SecondaryController implements Initializable {
 
     int i = 0;
+    int cacheImg = 0;
     @FXML
-    GridPane carritoView = new GridPane();
-    AnchorPane carritoTab = new AnchorPane();
-    Button button = new Button();
-    AnchorPane rowAdd = new AnchorPane();
-    Tab opOption = new Tab();
+    public GridPane carritoView;
+    public AnchorPane carritoTab, rowAdd;
+    public Button button, buttonAddElementTienda;
+    public TextField addNameToShop, AddPriceToShop, selectProductTag, addImageToShopTextfield;
+    public Tab opOptions, tab1;
 
     public void cerra() {
         System.exit(0);
+    }
+
+    public void setUp() {
+
+        if (App.currentAccount.isAdmin) {
+            System.out.println(App.currentAccount.isAdmin + "\n" + button.isDisable());
+            opOptions.setDisable(false);
+        } else {
+            opOptions.setDisable(true);
+        }
     }
 
     public double carritoHeight() {
@@ -90,17 +113,23 @@ public class SecondaryController {
     public void addElementToCarrito() {
         carritoView.setPrefHeight(carritoHeight() + 200);
         carritoView.add(rowAddCarrito(), 0, i);
-        if (opOption.isDisable()) {
-            opOption.setDisable(false);
-        } else {
-            opOption.setDisable(true);
-        }
         i++;
     }
-    
+
+    // Funcion que añade el elemento a la tienda
+    public void addElementToTienda() throws IOException {
+        String direccionDeImagen;
+        File source = new File(addImageToShopTextfield.getText());
+        File dest = new File(System.getProperty("user.dir") + "\\src\\main\\resources\\Data\\ElementImagen\\cache"
+                + cacheImg + ".jpg");
+        FileInputStream in = new FileInputStream(source);
+        // FileOutputStream out = new FileOutputStream(dest);
+
+    }
+
     // Funcion que crea los paneles de la tienda
-    public AnchorPane AddTienda(){
-        
+    public AnchorPane AddTienda(node elemento) {
+        Elemento elementoAAñadir = (Elemento) elemento;
         // Creando los elementos
         AnchorPane addtienda = new AnchorPane();
         Label lbl = new Label();
@@ -108,38 +137,38 @@ public class SecondaryController {
         Label lbl3 = new Label();
         Button btt = new Button();
         Button btt2 = new Button();
-        Image img = new Image("file:src/main/resources/icons/imgNotFound.jpg");
+        Image img = new Image(elementoAAñadir.imgDir);
         ImageView iv = new ImageView(img);
-        
+
         // Asignando las caracteristicas a el elemento de la imagen
         iv.setFitWidth(338);
         iv.setFitHeight(495);
         iv.setLayoutX(14);
         iv.setLayoutY(14);
         iv.preserveRatioProperty().set(true);
-        
+
         // Asignando las caracteristicas a los labels
         lbl.setPrefSize(311, 37);
         lbl.setLayoutX(14);
         lbl.setLayoutY(6);
         lbl.setFont(Font.font("System", FontWeight.BOLD, 24));
-        lbl.setText("Producto");
+        lbl.setText(elementoAAñadir.elementName);
         lbl.setTextFill(Color.BLACK);
-        
+
         lbl2.setPrefSize(311, 37);
         lbl2.setLayoutX(14);
         lbl2.setLayoutY(340);
         lbl2.setFont(Font.font("System", FontWeight.BOLD, 24));
-        lbl2.setText("Precio");
+        lbl2.setText(elementoAAñadir.price + "");
         lbl2.setTextFill(Color.BLACK);
-        
+
         lbl3.setPrefSize(311, 37);
         lbl3.setLayoutX(14);
         lbl3.setLayoutY(377);
         lbl3.setFont(Font.font("System", FontWeight.BOLD, 24));
-        lbl3.setText("Tipo de producto");
+        lbl3.setText(elementoAAñadir.tag);
         lbl3.setTextFill(Color.BLACK);
-        
+
         // Asignando las caracteristicas a los botones
         btt.setPrefSize(119, 55);
         btt.setLayoutX(43);
@@ -153,7 +182,7 @@ public class SecondaryController {
         btt.setOnAction(e -> {
             // Hay que añadir la funcion de añadir el elemento al carro
         });
-        
+
         btt2.setPrefSize(119, 55);
         btt2.setLayoutX(43);
         btt2.setLayoutY(418);
@@ -166,7 +195,7 @@ public class SecondaryController {
         btt.setOnAction(e -> {
             // Hay que añadir la funcion de añadir el elemento a favoritos
         });
-        
+
         // Asignando las caracteristicas al panel principal que contiene todo
         addtienda.setPrefSize(338, 495);
         addtienda.getStylesheets().add("file:/" + System.getProperty("user.dir"
@@ -178,8 +207,17 @@ public class SecondaryController {
         addtienda.getChildren().add(btt);
         addtienda.getChildren().add(btt2);
         addtienda.getChildren().add(iv);
-        
+
         return addtienda;
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if (App.currentAccount.isAdmin) {
+            opOptions.setDisable(false);
+        } else {
+            opOptions.setDisable(true);
+        }
     }
 
 }
