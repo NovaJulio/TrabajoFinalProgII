@@ -6,6 +6,7 @@ package com.mycompany.tranbajofinalprogii.Logic;
 
 import java.io.IOException;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class cuenta extends node {
@@ -25,35 +26,24 @@ public class cuenta extends node {
         this.username = d.getString("username");
         this.password = d.getString("password");
         this.isAdmin = d.getBoolean("isAdmin");
-        if (d.has("carrito")) {
-            this.carrito.importList(System.getProperty("user.dir") + "\\src\\main\\resources\\Data\\AccountList.txt",
-                    username, "carrito");
-        }
-        if (d.has("wishList")) {
-            this.wishList.importList(System.getProperty("user.dir") + "\\src\\main\\resources\\Data\\AccountList.txt",
-                    username, "wishList");
-        }
-        if (d.has("history")) {
-            this.history.importList(System.getProperty("user.dir") + "\\src\\main\\resources\\Data\\AccountList.txt",
-                    username, "history");
-        }
+        this.carrito = d.getJSONArray("carrito");
+        this.wishList = d.getJSONArray("wishList");
+        this.history = d.getJSONArray("history");
     }
 
     @Override
     public JSONObject nodeToJson() {
         JSONObject d = new JSONObject();
+        JSONArray carrito = new JSONArray(this.carrito);
+        JSONArray wishList = new JSONArray(this.wishList);
+        JSONArray history = new JSONArray(this.history);
         d.put("username", this.username);
         d.put("password", this.password);
         d.put("isAdmin", this.isAdmin);
-        if (carrito != null) {
-            d.put("carrito", carrito.listToJson());
-        }
-        if (wishList != null) {
-            d.put("wishList", wishList.listToJson());
-        }
-        if (history != null) {
-            d.put("history", history.listToJson());
-        }
+        d.put("carrito", carrito);
+        d.put("wishList", wishList);
+        d.put("history", history);
+
         return d;
     }
 

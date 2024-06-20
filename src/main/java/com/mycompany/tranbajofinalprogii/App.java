@@ -16,6 +16,12 @@ public class App extends Application {
     public static list listCuentas = new list();
     @SuppressWarnings("exports")
     public static cuenta currentAccount;
+    @SuppressWarnings("exports")
+    public static list currentWishList = new list();
+    @SuppressWarnings("exports")
+    public static list currentCarrito = new list();
+    @SuppressWarnings("exports")
+    public static list currentHistory = new list();
 
     private static Scene scene;
     static PrimaryController o;
