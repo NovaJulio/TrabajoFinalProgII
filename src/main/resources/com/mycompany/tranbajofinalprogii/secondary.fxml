@@ -80,12 +80,12 @@
                            </font>
                         </Label>
                         <TextField fx:id="AddPriceToShop" layoutX="500.0" layoutY="150.0" />
-                        <Label layoutX="73.0" layoutY="298.0" prefHeight="20.0" prefWidth="153.0" text="Imagen del producto:">
+                        <Label layoutX="33.0" layoutY="298.0" prefHeight="20.0" prefWidth="153.0" text="Imagen del producto:">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <ImageView fx:id="addImageToShop" fitHeight="150.0" fitWidth="200.0" layoutX="215.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="addImageToShop" fitHeight="223.0" fitWidth="426.0" layoutX="30.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../../../icons/imgNotFound.jpg" />
                            </image>
@@ -95,14 +95,14 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="addImageToShopTextfield" layoutX="226.0" layoutY="296.0" prefHeight="25.0" prefWidth="233.0" />
+                        <TextField fx:id="imageDirTextField" editable="false" layoutX="186.0" layoutY="296.0" prefHeight="25.0" prefWidth="233.0" />
                         <Label layoutX="718.0" layoutY="129.0" text="Tipo de producto:">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="selectProductTag" layoutX="746.0" layoutY="150.0" />
-                        <Label layoutX="461.0" layoutY="300.0" text="Solo jpg*" textFill="#8a8282" />
+                        <Button fx:id="addImageButton" layoutX="423.0" layoutY="296.0" mnemonicParsing="false" onAction="#selectImage" text="..." />
+                        <ComboBox fx:id="selectProductTag" layoutX="728.0" layoutY="151.0" prefWidth="150.0" />
                      </children></AnchorPane>
               </content>
             </Tab>

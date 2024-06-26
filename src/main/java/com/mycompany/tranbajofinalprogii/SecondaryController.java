@@ -1,7 +1,6 @@
 package com.mycompany.tranbajofinalprogii;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,7 +10,10 @@ import com.mycompany.tranbajofinalprogii.Logic.node;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
@@ -22,6 +24,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.FileChooser;
+import javafx.stage.StageStyle;
+import javax.imageio.ImageIO;
 
 @SuppressWarnings("exports")
 public class SecondaryController implements Initializable {
@@ -31,9 +36,12 @@ public class SecondaryController implements Initializable {
     @FXML
     public GridPane carritoView;
     public AnchorPane carritoTab, rowAdd;
-    public Button button, buttonAddElementTienda;
-    public TextField addNameToShop, AddPriceToShop, selectProductTag, addImageToShopTextfield;
+    public Button button, buttonAddElementTienda, addImageButton;
+    public TextField addNameToShop, AddPriceToShop, imageDirTextField;
+    public ComboBox selectProductTag;
     public Tab opOptions, tab1;
+    public ImageView addImageToShop;
+    private boolean all;
 
     public void cerra() {
         System.exit(0);
@@ -118,13 +126,45 @@ public class SecondaryController implements Initializable {
 
     // Funcion que añade el elemento a la tienda
     public void addElementToTienda() throws IOException {
-        String direccionDeImagen;
-        File source = new File(addImageToShopTextfield.getText());
-        File dest = new File(System.getProperty("user.dir") + "\\src\\main\\resources\\Data\\ElementImagen\\cache"
-                + cacheImg + ".jpg");
-        FileInputStream in = new FileInputStream(source);
-        // FileOutputStream out = new FileOutputStream(dest);
+        Alert errorPanel = new Alert(AlertType.ERROR);
+        errorPanel.initStyle(StageStyle.UNDECORATED);
+        System.out.println("Prueba");
 
+        // Comprobacion
+        if (addNameToShop.getText().isBlank() || imageDirTextField.getText().isBlank()
+                || selectProductTag.getValue().toString().isBlank() || AddPriceToShop.getText().isBlank()) {
+            errorPanel.setContentText("Ningun campo puede estar vacio, verifique los datos");
+            errorPanel.show();
+            return;
+        }
+
+        Elemento auxiliar = new Elemento(addNameToShop.getText(), imageDirTextField.getText(),
+                selectProductTag.getValue().toString(),
+                Integer.parseInt(AddPriceToShop.getText()));
+        App.shop.createnode(auxiliar);
+    }
+
+    // Funcion para seleccionar la imagen
+    public void selectImage() throws IOException {
+        Alert errorPanel = new Alert(AlertType.ERROR);
+        errorPanel.initStyle(StageStyle.UNDECORATED);
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
+        File file = fileChooser.showOpenDialog(App.getStage());
+        if (!file.exists()) {
+            errorPanel.setContentText("La ruta dada no es valida");
+            errorPanel.show();
+            return;
+        }
+        imageDirTextField.setText(file.getAbsolutePath());
+        Image img = new Image(file.toURI().toString());
+        addImageToShop.setImage(img);
+    }
+
+    // Funcion para copiar la imagen a el directorio interno
+    private String copyImage() {
+        return null;
     }
 
     // Funcion que crea los paneles de la tienda
@@ -211,6 +251,7 @@ public class SecondaryController implements Initializable {
         return addtienda;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (App.currentAccount.isAdmin) {
@@ -218,6 +259,12 @@ public class SecondaryController implements Initializable {
         } else {
             opOptions.setDisable(true);
         }
+
+        // Añadiendo los tags a selectProductTag
+        selectProductTag.getItems().addAll("Skin");
+        selectProductTag.getItems().addAll("Pico");
+        selectProductTag.getItems().addAll("Mochila");
+        selectProductTag.getItems().addAll("Envoltorio");
     }
 
 }

@@ -11,7 +11,7 @@ import javafx.scene.image.Image;
 import javafx.stage.StageStyle;
 
 public class App extends Application {
-
+    private static Stage stage;
     @SuppressWarnings("exports")
     public static list listCuentas = new list();
     @SuppressWarnings("exports")
@@ -30,6 +30,7 @@ public class App extends Application {
 
     @Override
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
+        App.stage = stage;
         scene = new Scene(loadFXML("primary"), 1116, 682);
         o.setUp();
         stage.setScene(scene);
@@ -71,4 +72,8 @@ public class App extends Application {
         launch();
     }
 
+    @SuppressWarnings("exports")
+    public static Stage getStage() {
+        return stage;
+    }
 }
