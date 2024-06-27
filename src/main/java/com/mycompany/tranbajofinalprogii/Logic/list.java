@@ -3,11 +3,11 @@ package com.mycompany.tranbajofinalprogii.Logic;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class list {
@@ -158,19 +158,21 @@ public class list {
     }
 
     // Convierte la lista a json
-    public JSONObject listToJson() {
-        JSONObject hash = new JSONObject();
+    public JSONArray listToJson() {
+        JSONArray hash = new JSONArray();
+        if (isEmpty()) {
+            return hash;
+        }
         node j = cab;
-        int i = 1;
         do {
-            hash.put("" + i, j.nodeToJson());
+            hash.put(j.nodeToJson());
             j = j.next;
-            i++;
         } while (j != cab);
+
         return hash;
     }
 
-    //Importa la lista de nodes
+    // Importa la lista de usuarios
     public void importList(String url) throws IOException {
         File file = new File(url);
         if (!file.exists()) {
@@ -190,61 +192,13 @@ public class list {
             jsoStringBuilder.append(line);
             line = br.readLine();
         }
-        JSONObject hash = new JSONObject(jsoStringBuilder.toString());
-        try {
-            int i = 1;
-            while (hash.has("" + i)) {
-                node j = new cuenta(hash.getJSONObject("" + i));
-                createnode(j);
-                i++;
-            }
-            br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        JSONArray hash = new JSONArray(jsoStringBuilder.toString());
+        for (int i = 0; i < hash.length(); i++) {
+            JSONObject d = hash.getJSONObject(i);
+            createnode(new cuenta(d));
         }
+        br.close();
+
     }
 
-    public void importList(String url, String user, String listName) throws IOException {
-        File file = new File(url);
-        if (!file.exists()) {
-            System.out.println("El archivo no existe");
-            return;
-        }
-        FileReader fr = new FileReader(file);
-        BufferedReader br = new BufferedReader(fr);
-        String line = br.readLine();
-        if (line == null) {
-            System.out.println("La lista esta vacia");
-            br.close();
-            return;
-        }
-        StringBuilder jsoStringBuilder = new StringBuilder();
-        while (line != null) {
-            jsoStringBuilder.append(line);
-            line = br.readLine();
-        }
-        JSONObject hash = new JSONObject(jsoStringBuilder.toString());
-        try {
-            int i = 1;
-            JSONObject o;
-            while (hash.has("" + i)) {
-                o = new JSONObject(hash.getJSONObject("" + i));
-                if (o.getString("username").equals(user)) {
-                    break;
-                } else {
-                    i++;
-                }
-                JSONObject o2 = new JSONObject(o.getJSONObject(listName));
-                int i2 = 1;
-                while (o2.has("" + i2)) {
-                    node j = new Elemento(new JSONObject(o2.get("" + i2)));
-                    createnode(j);
-                    i2++;
-                }
-            }
-            br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 }

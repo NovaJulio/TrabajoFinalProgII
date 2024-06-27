@@ -60,6 +60,14 @@ public class App extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            try {
+                listCuentas.savelist(System.getProperty("user.dir") +
+                        "\\src\\main\\resources\\Data\\AccountList.txt");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }));
 
         /*
          * cuenta j = (cuenta) listCuentas.cab;

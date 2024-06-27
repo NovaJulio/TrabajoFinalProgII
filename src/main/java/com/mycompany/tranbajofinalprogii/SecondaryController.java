@@ -6,8 +6,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.mycompany.tranbajofinalprogii.Logic.Elemento;
+import com.mycompany.tranbajofinalprogii.Logic.cuenta;
 import com.mycompany.tranbajofinalprogii.Logic.node;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -38,12 +40,27 @@ public class SecondaryController implements Initializable {
     public AnchorPane carritoTab, rowAdd;
     public Button button, buttonAddElementTienda, addImageButton;
     public TextField addNameToShop, AddPriceToShop, imageDirTextField;
+    @SuppressWarnings("rawtypes")
     public ComboBox selectProductTag;
     public Tab opOptions, tab1;
     public ImageView addImageToShop;
-    private boolean all;
+
+    private cuenta getUsernameAccount(String username, cuenta j) {
+        do {
+            if (j.username.equals(username)) {
+                return j;
+            } else {
+                j = (cuenta) j.next;
+            }
+        } while (j != App.listCuentas.cab);
+        return j;
+    }
 
     public void cerra() {
+        cuenta j = (cuenta) App.listCuentas.cab;
+        j = getUsernameAccount(App.currentAccount.username, j);
+        j = App.currentAccount;
+
         System.exit(0);
     }
 
@@ -137,11 +154,20 @@ public class SecondaryController implements Initializable {
             errorPanel.show();
             return;
         }
+        String name = addNameToShop.getText();
+        String tag = selectProductTag.getValue().toString();
+        int price = Integer.parseInt(AddPriceToShop.getText());
 
-        Elemento auxiliar = new Elemento(addNameToShop.getText(), imageDirTextField.getText(),
-                selectProductTag.getValue().toString(),
-                Integer.parseInt(AddPriceToShop.getText()));
+        Elemento auxiliar = new Elemento(name, copyImage(name), tag, price);
+
         App.shop.createnode(auxiliar);
+        Elemento ultiElemento = (Elemento) App.shop.getEnd();
+        System.out.println(ultiElemento.imgDir);
+    }
+
+    // Imprimir la tienda
+    public void printShop() {
+
     }
 
     // Funcion para seleccionar la imagen
@@ -163,8 +189,19 @@ public class SecondaryController implements Initializable {
     }
 
     // Funcion para copiar la imagen a el directorio interno
-    private String copyImage() {
-        return null;
+    private String copyImage(String name) {
+        File userDir = new File("src/main/resources/cache/" + name);
+        if (!userDir.exists()) {
+            userDir.mkdir();
+        }
+        File outputFile = new File(userDir.getAbsolutePath() + "\\elementImg.png");
+        Image image = new Image("file:" + imageDirTextField.getText());
+
+        try {
+            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", outputFile);
+        } catch (Exception e) {
+        }
+        return outputFile.getAbsolutePath();
     }
 
     // Funcion que crea los paneles de la tienda

@@ -203,12 +203,8 @@ public class PrimaryController {
             regUsername.setText("");
             regPass.setText("");
             regPassComfirm.setText("");
-            saveAccounList();
             cuenta j = (cuenta) App.listCuentas.cab;
-            do {
-                System.out.println(j.username);
-                j = (cuenta) j.next;
-            } while (j != (cuenta) App.listCuentas.cab);
+            System.out.println(j.carrito.isEmpty());
         } else {
             a.setContentText("Las contraseñas no son iguales");
             a.show();
@@ -302,11 +298,6 @@ public class PrimaryController {
             confirmPassLabel.setVisible(false);
             return true;
         }
-    }
-
-    // Guatdar archivo con los elementos de la lista
-    public void saveAccounList() throws IOException {
-        App.listCuentas.savelist(System.getProperty("user.dir") + "\\src\\main\\resources\\Data\\AccountList.txt");
     }
 
     // Iniciar sesion

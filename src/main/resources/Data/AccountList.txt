@@ -1,12 +1,8 @@
-{
-  "1": {
-    "password": "Jene4453...",
-    "isAdmin": true,
-    "username": "Julio"
-  },
-  "2": {
-    "password": "Jene4453...",
-    "isAdmin": false,
-    "username": "Dariel"
-  }
-}
+[{
+  "wishList": [],
+  "password": "Jene4453...",
+  "isAdmin": true,
+  "history": [],
+  "carrito": [],
+  "username": "Julio"
+}]

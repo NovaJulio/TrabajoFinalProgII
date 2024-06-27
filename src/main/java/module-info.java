@@ -4,6 +4,8 @@ module com.mycompany.tranbajofinalprogii {
     requires java.base;
     requires org.json;
     requires java.desktop;
+    requires javafx.base;
+    requires javafx.swing;
 
     opens com.mycompany.tranbajofinalprogii to javafx.fxml;
 
