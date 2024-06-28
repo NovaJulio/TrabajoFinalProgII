@@ -234,41 +234,41 @@ public class SecondaryController implements Initializable {
         ImageView iv = new ImageView(img);
 
         // Asignando las caracteristicas a el elemento de la imagen
-        iv.setFitWidth(338);
-        iv.setFitHeight(495);
-        iv.setLayoutX(14);
-        iv.setLayoutY(14);
+        iv.setFitWidth(238);
+        iv.setFitHeight(268);
+        iv.setLayoutX(50);
+        iv.setLayoutY(53);
         iv.preserveRatioProperty().set(true);
 
         // Asignando las caracteristicas a los labels
-        lbl.setPrefSize(311, 37);
-        lbl.setLayoutX(14);
-        lbl.setLayoutY(6);
+        lbl.setPrefSize(178, 25);
+        lbl.setLayoutX(80);
+        lbl.setLayoutY(14);
         lbl.setFont(Font.font("System", FontWeight.BOLD, 24));
         lbl.setText(elementoAAñadir.elementName);
         lbl.setId("elementName");
         lbl.setTextFill(Color.BLACK);
 
-        lbl2.setPrefSize(311, 37);
+        lbl2.setPrefSize(39, 20);
         lbl2.setLayoutX(14);
-        lbl2.setLayoutY(340);
+        lbl2.setLayoutY(342);
         lbl2.setFont(Font.font("System", FontWeight.BOLD, 24));
         lbl2.setText(elementoAAñadir.price + "");
         lbl2.setId("elementName");
         lbl2.setTextFill(Color.BLACK);
 
-        lbl3.setPrefSize(311, 37);
+        lbl3.setPrefSize(108, 20);
         lbl3.setLayoutX(14);
-        lbl3.setLayoutY(377);
+        lbl3.setLayoutY(369);
         lbl3.setFont(Font.font("System", FontWeight.BOLD, 24));
         lbl3.setText(elementoAAñadir.tag);
         lbl3.setId("elementName");
         lbl3.setTextFill(Color.BLACK);
 
         // Asignando las caracteristicas a los botones
-        btt.setPrefSize(119, 55);
-        btt.setLayoutX(43);
-        btt.setLayoutY(418);
+        btt.setPrefSize(104, 65);
+        btt.setLayoutX(46);
+        btt.setLayoutY(406);
         btt.setFont(Font.font("System", FontWeight.BOLD, 12));
         btt.setText("Carrito");
         Image carrito = new Image("file:src/main/resources/icons/carrito.png");
@@ -279,9 +279,9 @@ public class SecondaryController implements Initializable {
             // Hay que añadir la funcion de añadir el elemento al carro
         });
 
-        btt2.setPrefSize(119, 55);
-        btt2.setLayoutX(43);
-        btt2.setLayoutY(418);
+        btt2.setPrefSize(104, 65);
+        btt2.setLayoutX(189);
+        btt2.setLayoutY(406);
         btt2.setFont(Font.font("System", FontWeight.BOLD, 12));
         btt2.setText("Deseos");
         Image deseos = new Image("file:src/main/resources/icons/Corazon.png");
