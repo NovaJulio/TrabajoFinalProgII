@@ -25,7 +25,7 @@
                      <children>
                         <ScrollPane hmax="0.0" layoutX="-6.0" prefHeight="655.0" prefWidth="1124.0" style="-fx-background: transparent; -fx-background-color: transparent;" vbarPolicy="ALWAYS">
                            <content>
-                              <GridPane prefHeight="0.0" prefWidth="0.0">
+                              <GridPane fx:id="tablaTienda" prefHeight="0.0" prefWidth="0.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

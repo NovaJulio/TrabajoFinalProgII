@@ -36,7 +36,7 @@ public class SecondaryController implements Initializable {
     int i = 0;
     int cacheImg = 0;
     @FXML
-    public GridPane carritoView;
+    public GridPane carritoView, tablaTienda;
     public AnchorPane carritoTab, rowAdd;
     public Button button, buttonAddElementTienda, addImageButton;
     public TextField addNameToShop, AddPriceToShop, imageDirTextField;
@@ -163,11 +163,26 @@ public class SecondaryController implements Initializable {
         App.shop.createnode(auxiliar);
         Elemento ultiElemento = (Elemento) App.shop.getEnd();
         System.out.println(ultiElemento.imgDir);
+        printShop();
     }
 
     // Imprimir la tienda
     public void printShop() {
-
+        int x = 0;
+        int y = 0;
+        node aux = App.shop.cab;
+        do{
+          tablaTienda.add(AddTienda(aux), x, y);
+          if(x < 2 ){
+              x++;
+          }else{
+              y++;
+              x = 0;
+          }
+          aux = aux.next;
+        }while(aux != App.shop.cab);
+        tablaTienda.prefWidth(tablaTienda.getColumnCount()*338);
+        tablaTienda.prefHeight(tablaTienda.getColumnCount()*495);
     }
 
     // Funcion para seleccionar la imagen
@@ -192,6 +207,7 @@ public class SecondaryController implements Initializable {
     private String copyImage(String name) {
         File userDir = new File("src/main/resources/cache/" + name);
         if (!userDir.exists()) {
+            System.out.println("hola");
             userDir.mkdir();
         }
         File outputFile = new File(userDir.getAbsolutePath() + "\\elementImg.png");
@@ -214,7 +230,7 @@ public class SecondaryController implements Initializable {
         Label lbl3 = new Label();
         Button btt = new Button();
         Button btt2 = new Button();
-        Image img = new Image(elementoAAñadir.imgDir);
+        Image img = new Image("file:" + elementoAAñadir.imgDir);
         ImageView iv = new ImageView(img);
 
         // Asignando las caracteristicas a el elemento de la imagen
@@ -230,6 +246,7 @@ public class SecondaryController implements Initializable {
         lbl.setLayoutY(6);
         lbl.setFont(Font.font("System", FontWeight.BOLD, 24));
         lbl.setText(elementoAAñadir.elementName);
+        lbl.setId("elementName");
         lbl.setTextFill(Color.BLACK);
 
         lbl2.setPrefSize(311, 37);
@@ -237,6 +254,7 @@ public class SecondaryController implements Initializable {
         lbl2.setLayoutY(340);
         lbl2.setFont(Font.font("System", FontWeight.BOLD, 24));
         lbl2.setText(elementoAAñadir.price + "");
+        lbl2.setId("elementName");
         lbl2.setTextFill(Color.BLACK);
 
         lbl3.setPrefSize(311, 37);
@@ -244,6 +262,7 @@ public class SecondaryController implements Initializable {
         lbl3.setLayoutY(377);
         lbl3.setFont(Font.font("System", FontWeight.BOLD, 24));
         lbl3.setText(elementoAAñadir.tag);
+        lbl3.setId("elementName");
         lbl3.setTextFill(Color.BLACK);
 
         // Asignando las caracteristicas a los botones
@@ -284,9 +303,10 @@ public class SecondaryController implements Initializable {
         addtienda.getChildren().add(btt);
         addtienda.getChildren().add(btt2);
         addtienda.getChildren().add(iv);
-
         return addtienda;
     }
+    
+    
 
     @SuppressWarnings("unchecked")
     @Override
@@ -304,4 +324,21 @@ public class SecondaryController implements Initializable {
         selectProductTag.getItems().addAll("Envoltorio");
     }
 
+    /* añadir elemento de la tienda a carrito 
+    todavia por terminar :)
+    */
+    public void copyToCarrito(AnchorPane parent, Button pressed){
+        Elemento j = (Elemento)App.shop.cab;
+        String n;
+        parent = (AnchorPane)pressed.getParent();
+        for(int i = 0; i<parent.getChildren().size(); i++){
+            if(parent.getChildren().get(i).getId().equals("elementName")){
+                Label aux = (Label)parent.getChildren().get(i);
+                n = aux.getText();
+                break;
+            }
+        }
+        
+    }
+    
 }
