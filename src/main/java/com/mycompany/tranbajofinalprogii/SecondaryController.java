@@ -171,18 +171,18 @@ public class SecondaryController implements Initializable {
         int x = 0;
         int y = 0;
         node aux = App.shop.cab;
-        do{
-          tablaTienda.add(AddTienda(aux), x, y);
-          if(x < 2 ){
-              x++;
-          }else{
-              y++;
-              x = 0;
-          }
-          aux = aux.next;
-        }while(aux != App.shop.cab);
-        tablaTienda.prefWidth(tablaTienda.getColumnCount()*338);
-        tablaTienda.prefHeight(tablaTienda.getColumnCount()*495);
+        do {
+            tablaTienda.add(AddTienda(aux), x, y);
+            if (x < 2) {
+                x++;
+            } else {
+                y++;
+                x = 0;
+            }
+            aux = aux.next;
+        } while (aux != App.shop.cab);
+        tablaTienda.prefWidth(tablaTienda.getColumnCount() * 338);
+        tablaTienda.prefHeight(tablaTienda.getColumnCount() * 495);
     }
 
     // Funcion para seleccionar la imagen
@@ -305,8 +305,6 @@ public class SecondaryController implements Initializable {
         addtienda.getChildren().add(iv);
         return addtienda;
     }
-    
-    
 
     @SuppressWarnings("unchecked")
     @Override
@@ -324,21 +322,22 @@ public class SecondaryController implements Initializable {
         selectProductTag.getItems().addAll("Envoltorio");
     }
 
-    /* añadir elemento de la tienda a carrito 
-    todavia por terminar :)
-    */
-    public void copyToCarrito(AnchorPane parent, Button pressed){
-        Elemento j = (Elemento)App.shop.cab;
-        String n;
-        parent = (AnchorPane)pressed.getParent();
-        for(int i = 0; i<parent.getChildren().size(); i++){
-            if(parent.getChildren().get(i).getId().equals("elementName")){
-                Label aux = (Label)parent.getChildren().get(i);
-                n = aux.getText();
-                break;
-            }
-        }
-        
-    }
-    
+    /*
+     * añadir elemento de la tienda a carrito
+     * todavia por terminar :)
+     * 
+     * public void copyToCarrito(AnchorPane parent, Button pressed){
+     * Elemento j = (Elemento)App.shop.cab;
+     * String n;
+     * parent = (AnchorPane)pressed.getParent();
+     * for(int i = 0; i<parent.getChildren().size(); i++){
+     * if(parent.getChildren().get(i).getId().equals("elementName")){
+     * Label aux = (Label)parent.getChildren().get(i);
+     * n = aux.getText();
+     * break;
+     * }
+     * }
+     * 
+     * }
+     */
 }
